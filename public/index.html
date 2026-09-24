@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosty Czat ze Znajomymi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container" class="screen">
+        <div class="login-card">
+            <h1>💬 Czat ze Znajomymi</h1>
+            <p>Wprowadz swoj unikalny nick, aby dolaczyc:</p>
+            <form id="login-form">
+                <input type="text" id="nickname-input" placeholder="Twoj nick..." autocomplete="off" required autofocus maxlength="20">
+                <button type="submit">Dolacz do czatu</button>
+            </form>
+            <div id="error-msg" class="error"></div>
+        </div>
+    </div>
+
+    <div id="chat-container" class="screen hidden">
+        <div class="sidebar">
+            <h2>👥 Online (<span id="user-count">0</span>)</h2>
+            <ul id="users-list"></ul>
+        </div>
+        <div class="chat-main">
+            <header class="chat-header">
+                <h2>Czat na zywo</h2>
+                <div class="current-user">Zalogowany jako: <strong id="my-nickname"></strong></div>
+            </header>
+            <div id="chat-messages" class="chat-messages"></div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="message-input" placeholder="Napisz wiadomosc..." autocomplete="off" required maxlength="500">
+                <button type="submit">Wyslij</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
